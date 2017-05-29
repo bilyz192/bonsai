@@ -1,0 +1,109 @@
+<% if current_user.role == 'admin' %>
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <title>Dashboard</title>
+      <%= csrf_meta_tags %>
+      <link href="https://fonts.googleapis.com/css?family=Exo:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+      <link href="https://file.myfontastic.com/dCG2GJr4fwPjRLCFrrMG8g/icons.css" rel="stylesheet">
+      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+      <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jQuery.mmenu/5.4.0/core/css/jquery.mmenu.all.css" />
+      <script type="text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/jQuery.mmenu/5.4.0/core/js/jquery.mmenu.min.js"></script>
+
+    </head>
+
+    <body>
+      <div id="page-dashboard">
+        <div class="container">
+          <div class="row">
+            <div class="header">
+              <div class="navbar navbar-default navbar-fixed-top">
+                <div class="container-fluid">
+                  <!-- Brand and toggle get grouped for better mobile display -->
+                  <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Dashboard</a>
+                  </div>
+
+                  <!-- Collect the nav links, forms, and other content for toggling -->
+                  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    
+                    <div class="nav navbar-nav">
+                      <a href="#menu-left">
+                        <div class="nav-icon">
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                        </div>
+                      </a>
+                    </div>
+                    <ul class="nav navbar-nav navbar-right">
+                      <% if user_signed_in? %>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><strong><%= current_user.email %></strong><span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                          <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %>
+                            </li>
+                          <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+                      <% else %>
+                          <li><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> </li>
+                            <li><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></li>
+
+                        </ul>
+                      </li>
+                      <% end %>
+                    </ul>
+              
+                  </div><!-- /.navbar-collapse -->
+
+                </div><!-- /.container-fluid -->
+              </div>
+            </div>
+            <div class="container-fluid">
+              <div class="row">
+                <div class="wrap-dashboard">
+                  <div >
+                    <nav id="menu-left">
+                      <ul>
+                        <li><a href="/dashboard">Home</a></li>
+                        <li><a>Thể loại</a>
+                          <ul>
+                            <li><a href="/dashboard/categories">Danh sách</a></li>
+                            <li><a href="/dashboard/categories/new">Tạo mới</a></li>
+                          </ul>
+                        </li>
+                        <li><a>Sản phẩm</a>
+                          <ul>
+                            <li><a href="/dashboard/articles">Danh sách</a></li>
+                            <li><a href="/dashboard/articles/new">Tạo mới</a></li>
+                          </ul>
+                        </li>
+
+                      </ul>
+                    </nav>
+
+                  </div>
+                  <div >
+                      <%= yield %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+        
+      </div>
+
+    </body>
+  </html>
+<% else %>
+  <p>Loi</p>
+<% end %>

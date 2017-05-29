@@ -1,0 +1,31 @@
+
+<section>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="col-lg-10"><h3 class="panel-title">Danh sách sản phẩm <span><%= @count %></span></h3> </div> <div class="col-lg-2"><%= link_to 'Thêm Sản phẩm', new_article_path %></div>
+    </div>
+    <div class="panel-body">
+      <table class="table">
+        
+          <tr>
+            <th>Email Customer</th>
+            <th>Name Customer</th>
+            <th>Role</th>
+            <th>Chức năng</th>
+          </tr>  
+        <% @staffers.each do |s| %>
+          </tr>  
+          <td><%= s.email %></td>
+          <td><%= s.email %></td>
+          <td><%= s.role%></td>
+
+          <td>
+            <%= link_to 'Show', staff_path(s) %>
+            <%= link_to 'Edit', edit_staff_path(s) %>
+            <%= link_to 'Destroy', staff_path(s), method: :delete, data: { confirm: 'Are you sure?' } %>
+         </td>
+        <% end %>
+      </table>
+
+  </div>
+</section>

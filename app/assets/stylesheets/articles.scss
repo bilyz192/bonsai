@@ -1,0 +1,73 @@
+.panel {
+  .panel-heading {
+    height: 40px;
+  }
+  .panel-body {
+    .table_form {
+      .title_new {
+        width: 150px;
+      }
+
+      .name {
+        margin: 10px 0px;
+        width: 60%;
+      }
+      .infor {
+        width: 60%;
+        height: 100px;
+        
+      }
+      .vertical {
+        vertical-align: top;
+      }
+    }
+    .btn {
+      width: 100px;
+    }
+  }
+}
+//Pages show acticle
+#article_show {
+  .article_title {
+    &:hover {
+      .function_article {
+        display: block;
+        opacity: 1;
+      }
+    }
+    .function_article {
+      text-align: right;
+      display: none;
+      opacity: 0;
+    }
+  }
+
+}
+//Pages edit acticle
+#article_edit {
+  .article_title {
+    h3 {
+      margin: 0px;
+    }
+    select {
+      width: 100%;
+      height: 30px;
+    }
+    .name_input {
+      width: 100%;
+      margin: 10px 0px;
+    }
+    &:hover {
+      .function_article {
+        display: block;
+        opacity: 1;
+      }
+    }
+    .function_article {
+      text-align: right;
+      display: none;
+      opacity: 0;
+    }
+  }
+
+}

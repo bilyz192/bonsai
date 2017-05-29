@@ -1,0 +1,20 @@
+<section id="article_show">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm4 col-md-3">
+        <div class="thumbnail">
+          <%= image_tag("img.jpg" , :alt => "img-product") %>
+          <div class="caption article_title" >
+            <div class="function_article">
+              <%= link_to '', edit_article_path(@article), class: "glyphicon glyphicon-pencil" %>
+              <%= link_to '', articles_path, class: "glyphicon glyphicon-step-backward" %>
+            </div>
+            <h3><%= @article.title %></h3>
+            <p><%= @article.category.name%></p>
+            <p><%= @article.content %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

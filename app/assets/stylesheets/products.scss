@@ -1,0 +1,45 @@
+#infor_product {
+  .tab-content {
+    .tab-pane {
+      img {
+        width: 100%;
+      }
+    }
+  }
+  .tabs-item {
+    padding: 0px;
+    .nav {
+      li {
+        &:nth-child(1) {
+          a {
+            padding-top: 0px;
+          }
+        }
+        img {
+          width: 100%;
+        }
+        a {
+          padding: 10px 0px;
+          border: 0px;
+          
+        }
+      }
+    }
+  }
+  .thumbnail {
+    padding: 15px;
+    h3 {
+      margin-top: 0px;
+    }
+    .caption {
+      padding: 0px;
+      .price {
+        text-align: right;
+        .old_price {
+        }
+        .new_price {
+        }
+      }
+    }
+  }
+}

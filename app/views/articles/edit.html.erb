@@ -1,0 +1,33 @@
+
+ 
+
+<section id="article_edit">
+  <div class="container">
+    <div class="row">
+      <%= form_for :article, url: article_path(@article), method: :patch do |a| %>
+        <div class="col-sm4 col-md-3">
+          <div class="thumbnail">
+            <%= image_tag("img.jpg" , :alt => "img-product") %>
+            <div class="caption article_title" >
+              <h3><%= a.text_field :title , class: 'name_input'  %></h3>
+              <select name="article[category_id]">
+                <% @categories.each do |c| %>
+                  <option value="<%= c.id %>" <%= 'selected="selected"' if c.id.to_s == @article.category.id.to_s %>
+                    
+                  </article><%= c.name %></option>
+                <% end %>
+              </select>
+              <p><%= a.text_area :content, class: 'name_input'  %></p>
+              <div class="function_article">
+                <div class="col-lg-9">
+                  <p><%= a.submit %></p>
+                </div class="col-lg-3">
+                <div> <%= button_to 'Back', articles_path %> </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>

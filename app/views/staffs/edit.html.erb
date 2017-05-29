@@ -1,0 +1,25 @@
+
+ 
+
+<section id="article_edit">
+  <div class="container">
+    <div class="row">
+      <%= form_for :staffs, url: staff_path(@staffs), method: :patch do |s| %>
+        <div class="col-sm4 col-md-3">
+          <div class="thumbnail">
+            <div class="caption article_title" >
+              <h3><%= s.text_field :email , class: 'name_input'  %></h3>
+              <p><%= s.text_area :role, class: 'name_input'  %></p>
+              <div class="function_article">
+                <div class="col-lg-9">
+                  <p><%= s.submit %></p>
+                </div class="col-lg-3">
+                <div> <%= button_to 'Back', staff_path %> </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>

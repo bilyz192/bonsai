@@ -1,0 +1,48 @@
+
+<div class="panel panel-success">
+  <div class="panel-heading">
+    <h3 class="panel-title">New Sản Phẩm </h3>
+  </div>
+  <div class="panel-body">
+    <%= form_for :article, url: articles_path, :id => "carform" do |f| %>
+     
+      <% if @article.errors.any? %>
+        <div id="error_explanation">
+          <h2>
+            <%= pluralize(@article.errors.count, "error") %> prohibited
+            this article from being saved:
+          </h2>
+          <ul>
+            <% @article.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <table class="table_form">
+          <select name="article[category_id]">
+            <% @categories.each do |c| %>
+              <option value="<%= c.id %>"><%= c.name %></option>
+            <% end %>
+          </select>
+     
+          <th class="title_new">Tên sản phẩm</th>
+          <td><%= f.text_field :title, class: 'name input' %></td>
+        </tr><br/>
+       <tr>
+          <th class="title_new vertical">Thông tin sản phẩm</th>
+          <td><%= f.text_area :content, class: 'infor input' %></td>
+        </tr>
+      </table>
+      <p>
+        <%= f.button :Tạo  , class: 'btn btn-success'%>
+  
+        
+      </p>
+     
+    <% end %>
+     
+    <%= link_to 'Back', articles_path %>
+
+  </div>
+
