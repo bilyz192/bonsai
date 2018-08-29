@@ -4,7 +4,7 @@ lock "~> 3.11.0"
 set :application, "bonsai"
 set :repo_url, "git@github.com:bilyz192/bonsai.git"
 # Change these
-server '178.128.127.39', user: 'rails', roles: [:web, :app, :db], primary: true
+server '178.128.20.110', user: 'rails', roles: [:web, :app, :db], primary: true
 
 set :user,            'rails'
 set :rvm_type,        :user
