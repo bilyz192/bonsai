@@ -27,6 +27,7 @@ set :puma_preload_app, false
 set :puma_prune_bundler, true
 set :puma_worker_timeout, nil
 set :puma_init_active_record, true  # Change to false when not using ActiveRecord
+set :format, :pretty
 
 ## Defaults:
 # set :scm,           :git
@@ -79,7 +80,7 @@ namespace :deploy do
   # end
 
   before :starting,     :check_revision
-  # after  :finishing,    :compile_assets
+  after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
   # after  :finishing,    :restart
 
